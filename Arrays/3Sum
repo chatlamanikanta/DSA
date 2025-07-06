@@ -1,13 +1,15 @@
+# Time Complexity : O(nlogn) + [O(n) * O(n)] = O(n^2) neglecting the least dominating term O(nlogn).
+
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        nums.sort()
+        nums.sort() # O(nlogn)
         ans = []
-        for i in range(len(nums)):
+        for i in range(len(nums)): # O(n)
             if i>0 and nums[i]==nums[i-1]:
                 continue
             j=i+1
             k=len(nums)-1
-            while j<k:
+            while j<k: # O(n)
                 res = nums[i]+nums[j]+nums[k]
                 if res==0:
                     ans.append([nums[i],nums[j],nums[k]])
