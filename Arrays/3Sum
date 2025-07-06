@@ -1,4 +1,5 @@
 # Time Complexity : O(nlogn) + [O(n) * O(n)] = O(n^2) neglecting the least dominating term O(nlogn).
+# Space Complexity : O(1) no extra space except output array
 
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
