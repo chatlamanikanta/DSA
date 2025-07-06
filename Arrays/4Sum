@@ -1,17 +1,20 @@
+# Time Complexity : O(nlogn) + [O(n) * O(n-i-1) * O(n)] = O(n log n) + O(n³) = O(n³)
+# Space Complexity : O(1) no extra space except output array
+
 class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
-        nums.sort()
+        nums.sort() # O(nlogn)
         ans = []
         n = len(nums)
-        for i in range(n):
+        for i in range(n): # O(n)
             if i>0 and nums[i]==nums[i-1]:
                 continue
-            for j in range(i+1,n):
+            for j in range(i+1,n): # O(n-i-1)
                 if j-1!=i and nums[j]==nums[j-1]:
                     continue
                 k=j+1
                 l=n-1
-                while k<l:
+                while k<l: #O(n)
                     res = nums[i]+nums[j]+nums[k]+nums[l]
                     if res == target:
                         ans.append([nums[i],nums[j],nums[k],nums[l]])
