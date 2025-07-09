@@ -1,0 +1,11 @@
+class Solution:
+    def missingNumber(self, arr):
+        maxi = max(arr)
+        
+        if maxi<0:
+            return 1
+        
+        for i in range(1,maxi+1):
+            if i not in set(arr):
+                return i
+        return maxi+1
