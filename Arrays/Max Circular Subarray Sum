@@ -1,0 +1,31 @@
+class Solution:
+    def circularSubarraySum(self, arr):
+        def normal_kadane(arr):
+            total = 0
+            res = arr[0]
+            
+            for num in arr:
+                total+=num
+                res = max(res,total)
+                
+                if total<0:
+                    total=0
+            return res
+        
+        normal_sum = normal_kadane(arr)
+        
+        total = sum(arr)
+        
+        mini = arr[0]
+        mini_res = arr[0]
+        
+        for num in arr[1:]:
+            mini = min(num,mini+num)
+            mini_res = min(mini_res,mini)
+            
+        wrap_sum = total - mini_res
+        
+        if wrap_sum==0:
+            return normal_sum
+        
+        return max(normal_sum,wrap_sum)
