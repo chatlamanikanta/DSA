@@ -1,0 +1,15 @@
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+        int l = nums.length;
+        int[] ans = new int[l];
+        int c = 0;
+        int s = 0;
+        int e = n;
+
+        while(s<n && e<l){
+            ans[c++] = nums[s++];
+            ans[c++] = nums[e++]; 
+        }
+        return ans;
+    }
+}
